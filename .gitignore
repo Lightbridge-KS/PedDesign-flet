@@ -3,12 +3,20 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+.DS_Store
+
 # C extensions
 *.so
 
+# Build
+## Ignore everything in build directory
+build/*
+## But do not ignore build/web
+!build/web/
+
+
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
