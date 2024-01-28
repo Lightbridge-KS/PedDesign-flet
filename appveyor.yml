@@ -1,0 +1,55 @@
+image:
+- Visual Studio 2019
+- macOS
+
+skip_branch_with_pr: true
+stack: python 3.11
+
+environment:
+  GITHUB_TOKEN:
+    secure: cq5sCIvjUPBY6V+SOp37WcH/MB78lGvEpPFlmIla4Fu0jAhzh4t48tkdJ7+ilo7Rh4lA2btygbrCMy9s1am664QWiPwl0KgImDI53FsLKuIuPZRi5jn8MhrJPbl9ODfH
+    
+install:
+- pip install -r requirements.txt
+
+build_script:
+- flet pack main.py --name PedDesignCT --icon assets/icon.png --product-name PedDesignCT --product-version "0.0.1" --copyright "Copyright (c) 2024 Lightbridge-KS."
+
+test: off
+
+# Publish artifacts to GitHub Releases on "tag" builds
+deploy:
+  provider: GitHub
+  auth_token: $(GITHUB_TOKEN)
+  on:
+    APPVEYOR_REPO_TAG: true
+
+#
+#   Windows package
+# 
+for:
+-
+  matrix:
+    only:
+    - image: Visual Studio 2019
+
+  after_build:
+  - 7z a PedDesignCT-windows.zip %CD%\dist\*.exe
+
+  artifacts:
+  - path: PedDesignCT-windows.zip
+
+#
+#   macOS package
+# 
+-
+  matrix:
+    only:
+    - image: macOS
+
+  after_build:
+  - tar -czvf PedDesignCT-macos.tar.gz -C dist PedDesignCT.app
+
+  artifacts:
+  - path: PedDesignCT-macos.tar.gz
+
