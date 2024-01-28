@@ -1,9 +1,5 @@
-# A peddesign-flet Flet app
+# Design Pediatric CT (Flet App) <a href="https://github.com/Lightbridge-KS/PedDesign-flet"><img src="assets/icon.png" align="right" height="138" /></a>
 
-An example of a minimal Flet app.
+> **Cross-platform app for design pediatric CT protocol.**
 
-To run the app:
-
-```
-flet run [app_directory]
-```
+- Build using [Flet](https://flet.dev/) cross-platform UI framework.
