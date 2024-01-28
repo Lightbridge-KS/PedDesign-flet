@@ -148,7 +148,6 @@ def main(page: Page):
     # Copy Button
     btn_copy = ft.IconButton(
                     icon=ft.icons.CONTENT_COPY,
-                    icon_color="blue400",
                     icon_size=20,
                     tooltip="Copy output",
                     on_click=button_cp_clicked
