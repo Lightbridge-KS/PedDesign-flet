@@ -19,6 +19,12 @@ jobs:
             
       - run: flutter --version
 
+      - name: Install GCC and Clang
+        run: |
+          sudo apt update
+          sudo apt install -y gcc
+          sudo apt install -y clang
+
       - name: Install Python Dependencies
         run: |
             pip install -r requirements.txt
