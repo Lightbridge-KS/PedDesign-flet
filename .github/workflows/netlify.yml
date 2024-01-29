@@ -29,12 +29,15 @@ jobs:
         uses: nwtgck/actions-netlify@v2
         with:
           publish-dir: './build/web'
-          production-branch: master
+          production-branch: main
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-          enable-pull-request-comment: false
-          enable-commit-comment: false
-          overwrites-pull-request-comment: false
+          deploy-message:
+            'Deploy from GHA: ${{ github.event.pull_request.title || github.event.head_commit.message }} (${{ github.sha }})'
+          # If `true`, GHA will comment with a link to deploy preview as triggered by:
+          enable-pull-request-comment: true # Pull Request.
+          enable-commit-comment: false  # Push directly to `production-branch` (i.e., main).
+          # If `true`, GHA will display a "check" (✔️) for a successful "Netlify deployment".
+          enable-commit-status: true 
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
