@@ -4,6 +4,7 @@ from flet import (
     Container,
     Column,
     Row,
+    ResponsiveRow,
     Page
 )
 import peddesign
@@ -124,7 +125,7 @@ def main(page: Page):
         
         
     # Title & App Bar
-    page.title = "Design Pediatric CT"
+    page.title = "Design Pediatric CT Protocol"
     page.appbar = ft.CupertinoAppBar(
         leading=ft.Icon(ft.icons.PALETTE),
         bgcolor=ft.colors.SURFACE_VARIANT,
@@ -134,10 +135,10 @@ def main(page: Page):
                                on_click=theme_changed)
     )
     
-    page.window_min_width = 630
-    page.window_width = page.window_min_width
-    page.window_min_height = 450
-    page.window_height = page.window_min_height
+    page.window_min_width = 400
+    page.window_width = 655
+    page.window_min_height = 470
+    page.window_height = 470
     # Button
     btn = ft.ElevatedButton(text="Generate", on_click=button_gen_clicked)
     
@@ -154,29 +155,27 @@ def main(page: Page):
                     )
     
     # UI
-    page.add(
-        Row(
+    rr = ResponsiveRow(
             controls=[
-                Column(
-                    [
+                Column(col={"sm": 6},
+                       controls=[
                         # ft.Text("Choose:", theme_style=ft.TextThemeStyle.HEADLINE_SMALL, weight=ft.FontWeight.NORMAL),
                         input_design,
                         Row([btn, btn_copy], alignment=ft.MainAxisAlignment.START)
-                    ], 
-                    alignment=ft.MainAxisAlignment.START
+                        ], 
+                       alignment=ft.MainAxisAlignment.START
                 ),
-                Column(
-                    [
-                        output_text_field
-                        
-                    ],
-                    alignment=ft.MainAxisAlignment.START
+                Column(col={"sm": 6}, 
+                       controls=[output_text_field],
+                       alignment=ft.MainAxisAlignment.START
                 )
             ]
         )
-    )
+    lv = ft.ListView(controls=[rr], 
+                     expand=1, spacing=5, padding=10, auto_scroll=False)
     
-
+    page.add(lv)
+    
 
 if __name__ == "__main__":
     ft.app(target=main)
