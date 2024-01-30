@@ -8,7 +8,7 @@
 
 **Build using [Flet](https://flet.dev/)**, a cross-platform UI framework in Python.
 
-- **Web app:** <https://peddesign-lightbridge.netlify.app>
+- **Web app:** <https://peddesign-ct.netlify.app>
 
 - **Desktop app:** see [release](https://github.com/Lightbridge-KS/PedDesign-flet/releases)
 
