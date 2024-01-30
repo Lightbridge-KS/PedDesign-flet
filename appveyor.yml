@@ -11,6 +11,7 @@ environment:
     
 install:
 - pip install -r requirements.txt
+- pip install pyinstaller pillow
 
 build_script:
 - flet pack main.py --name PedDesignCT --icon assets/icon.png --product-name PedDesignCT --product-version "0.0.1" --copyright "Copyright (c) 2024 Lightbridge-KS."
