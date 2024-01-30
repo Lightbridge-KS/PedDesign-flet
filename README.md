@@ -1,6 +1,6 @@
 # Design Pediatric CT (Flet App) <a href="https://github.com/Lightbridge-KS/PedDesign-flet"><img src="assets/icon.png" align="right" height="138" /></a>
 
-> **Cross-platform app for design pediatric CT protocol.**
+> **Cross-platform application for design pediatric CT protocol.**
 
 <img src="./img/screenshot-light.png" width="600">
 
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 ### Build app
 
 ```shell
-cd to/directory
+cd to/directory/root
 # Build
 flet build <target_platform>
 ```
