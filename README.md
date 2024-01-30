@@ -2,9 +2,7 @@
 
 > **Cross-platform app for design pediatric CT protocol.**
 
-<div style="text-align: center;">
-    <img src="./img/screenshot-light.png" width="400">
-</div>
+<img src="./img/screenshot-light.png" width="600">
 
 ---
 
